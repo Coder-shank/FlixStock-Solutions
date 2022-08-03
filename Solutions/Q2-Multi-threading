@@ -1,0 +1,61 @@
+#s1,s2,s3 are input threads give thread 1, thread 2, thread 3 as sample input .
+
+#ShashankShekharPandey
+import threading
+import time
+from time import sleep
+def print1f():
+    global timerV
+    timerV=0
+    print(s1,"is running at",timerV)
+    while timerV<20:
+        time.sleep(5)
+        timerV+=5
+        #timer=5
+        print(s1,"is running at",timerV)
+def print2f():
+    global timerV2
+    timerV2=20
+#timerV=20
+    print(s2,"is running at",timerV2)
+    while timerV2:
+        time.sleep(5)
+        timerV2+=5
+        #timer=5
+        print(s2,"is running at",timerV2)  
+def print3f():
+    global timerV3
+    timerV3=0
+    print(s3,"is running at",timerV3)
+    while timerV3<35:
+        time.sleep(5)
+        timerV3+=5
+        #timer=5
+        print(s3,"is running at",timerV3) 
+def print12f():
+    global timerV
+    timerV=38
+    print(s1,"is running at",timerV)
+    while timerV:
+        time.sleep(5)
+        timerV+=5
+        #timer=5
+        print(s1,"is running at",timerV)
+
+s1=input()
+s2=input()
+s3=input()
+thread1=  threading.Timer(0.0,print1f)
+thread1.start()
+
+thread3=  threading.Timer(0.0,print3f)
+thread3.start()
+time.sleep(20)
+#no need to cancel it is already stopped
+thread1.cancel()
+thread2=  threading.Timer(0.0,print2f)
+thread2.start()
+time.sleep(18)
+thread3.cancel()
+thread12 = threading.Timer(0.0,print12f)
+thread12.start()
